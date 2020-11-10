@@ -4,7 +4,13 @@
 **Explanation**
 - Here we want to be able to read from a ```.json``` file and pinpoint values we want
 
-- We need to import the ```json``` module to be able to import json files and turn them into dictionaries:
+- We need to import the ```json``` module to be able to import json files and turn them into dictionaries
+
+- This is the first iteration where all it does is written in the acceptance criteria above
+
+- To turn a ```.json``` file into a dictionary we use the ```with open``` keywords as shown in the code below
+
+- The required exchange rates are given as a dictionary so we must iterate through their keys (the country's currency name) and their values (the exchange rate)
 
 ```python
 import json
@@ -35,6 +41,8 @@ class Currency:
 
 Currency() 
 ```
+
+<br>
 
 ---
 - We can add extra functionality to ask whether they want to convert currency:
