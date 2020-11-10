@@ -3,6 +3,9 @@ import json
 class Currency:
     def __init__(self):
         self.exchange_rates = self.create_dic()
+        self.display_all_data()
+        input("\nPress enter to show the rates")
+        self.display_rates()
 
     # This opens the required json file and stores it as an attribute
     # By default, we are returned a dictionary    
@@ -20,3 +23,5 @@ class Currency:
     def display_rates(self):
         for key, value in self.exchange_rates["rates"].items():
             print(f"{key} : {value}")  
+
+Currency()
