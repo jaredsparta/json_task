@@ -35,3 +35,41 @@ class Currency:
 
 Currency() 
 ```
+
+---
+- We can add extra functionality to ask whether they want to convert currency:
+
+    ```python
+        # Converts currency1 to currency2
+    def convert(self, c1, c2):
+        currency1 = self.exchange_rates["rates"][c1]
+        currency2 = self.exchange_rates["rates"][c2]
+        print(f"1 {c1} = {currency2/currency1} {c2}")
+
+    # Asks input from user and returns the current exchange rate
+    def exchange_menu(self):
+        print(self.currency)
+        while True:
+            c_from = input("\nInput a currency to exchange from:  ").upper()
+            if not self.check_if_valid(c_from):
+                continue
+            c_to = input("Input a currency to exchange to:  ").upper()
+            if not self.check_if_valid(c_to):
+                continue
+            self.convert(c_from, c_to)
+            choice = input("\nDo you want to exchange again? (Y/N) \n--> ").upper().strip()
+            if choice == "Y":
+                continue
+            if choice == "N":
+                break
+            else:
+                print("Unknown command, please input Y or N only")
+                print("Exchanging again...")
+                continue
+
+    # Checks if the currency is supported
+    def check_if_valid(self, value):
+        if value not in self.currency:
+            return False
+        return True
+    ```
